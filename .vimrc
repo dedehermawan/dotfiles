@@ -17,6 +17,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-unimpaired'
 "Plugin 'pangloss/vim-javascript'
 "Plugin 'mxw/vim-jsx'
+Plugin 'hwartig/vim-seeing-is-believing'
 
 call vundle#end()
 
@@ -28,7 +29,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_theme = 'molokai'
 
 syntax on
-set relativenumber
+set number relativenumber
 set expandtab
 set shiftwidth=2
 set tabstop=2
@@ -87,3 +88,20 @@ autocmd FileType html,css EmmetInstall
 "edit untuk react file .jsx
 let g:jsx_ext_required = 0
 let g:jsx_pragma_required = 1
+
+
+
+"Enable seeing-is-believing mappings only for Ruby
+augroup seeingIsBelievingSettings
+  autocmd!
+
+  autocmd FileType ruby nmap <buffer> <Enter> <Plug>(seeing-is-believing-mark-and-run)
+  autocmd FileType ruby xmap <buffer> <Enter> <Plug>(seeing-is-believing-mark-and-run)
+
+  autocmd FileType ruby nmap <buffer> <F4> <Plug>(seeing-is-believing-mark)
+  autocmd FileType ruby xmap <buffer> <F4> <Plug>(seeing-is-believing-mark)
+  autocmd FileType ruby imap <buffer> <F4> <Plug>(seeing-is-believing-mark)
+
+  autocmd FileType ruby nmap <buffer> <F5> <Plug>(seeing-is-believing-run)
+  autocmd FileType ruby imap <buffer> <F5> <Plug>(seeing-is-believing-run)
+augroup END
