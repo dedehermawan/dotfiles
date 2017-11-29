@@ -17,6 +17,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-unimpaired'
 "Plugin 'pangloss/vim-javascript'
 "Plugin 'mxw/vim-jsx'
+Plugin 'Yggdroot/indentLine'
 Plugin 'hwartig/vim-seeing-is-believing'
 
 call vundle#end()
@@ -27,6 +28,7 @@ let NERDTreeHijackNetrw = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_theme = 'molokai'
+let g:indentLine_color_term = 239
 
 syntax on
 set number relativenumber
@@ -37,6 +39,7 @@ set incsearch
 set hlsearch
 set laststatus=2
 
+nmap <leader>q :q<cr>
 nmap <leader>c :tabedit $MYVIMRC<cr>
 nmap <leader>f :bn<cr>
 nmap <leader>d :bp<cr>
@@ -72,6 +75,13 @@ command! Qa qa
 command! E e
 command! W w
 command! Wq wq
+
+"save mode 
+imap <F2> <ESC>:w<cr>
+nmap <F2> :w<cr>
+
+"set toggle paste mode
+set pastetoggle=<leader>z
 
 let g:closetag_filenames = '*.html.erb,*.html,*.xhtml,*.phtml'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
