@@ -19,6 +19,8 @@ Plugin 'tpope/vim-unimpaired'
 "Plugin 'mxw/vim-jsx'
 Plugin 'Yggdroot/indentLine'
 Plugin 'hwartig/vim-seeing-is-believing'
+Plugin 'ervandew/supertab'
+Plugin 'majutsushi/tagbar'
 
 call vundle#end()
 
@@ -59,6 +61,7 @@ nmap <DOWN> <NOP>
 nmap <RIGHT> <NOP>
 nmap <LEFT> <NOP>
 nmap <leader>g gg=G
+nmap <F8> :TagbarToggle<CR>
 
 "line bubling
 "nmap <C-k> [e
