@@ -9,18 +9,23 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'qpkorr/vim-bufkill'
-Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'mileszs/ack.vim'
 Plugin 'alvan/vim-closetag'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-unimpaired'
-"Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-surround'
+Plugin 'pangloss/vim-javascript'
 "Plugin 'mxw/vim-jsx'
-Plugin 'Yggdroot/indentLine'
+"Plugin 'Yggdroot/indentLine'
+Plugin 'neoclide/vim-jsx-improve'
 Plugin 'hwartig/vim-seeing-is-believing'
 Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()
 
@@ -33,7 +38,7 @@ let g:airline_theme = 'molokai'
 let g:indentLine_color_term = 239
 
 syntax on
-set number relativenumber
+set number "relativenumber
 set expandtab
 set shiftwidth=2
 set tabstop=2
@@ -46,7 +51,8 @@ nmap <leader>c :tabedit $MYVIMRC<cr>
 nmap <leader>f :bn<cr>
 nmap <leader>d :bp<cr>
 nmap <leader>s :BD<cr>
-nmap <leader> :nohlsearch<cr>
+"nmap <leader> :nohlsearch<cr>
+nmap <CR> :nohlsearch<cr>
 nmap <C-h> <C-w><C-h>
 nmap <C-j> <C-w><C-j>
 nmap <C-k> <C-w><C-k>
@@ -55,13 +61,22 @@ nmap <leader>t :NERDTreeToggle<cr>
 nmap <leader>n :NERDTreeFind<cr>
 nmap <leader>w <leader><leader>w
 nmap <leader>b <leader><leader>b
-nmap <leader>p :CtrlPBuffer<cr>
 nmap <UP> <NOP>
 nmap <DOWN> <NOP>
 nmap <RIGHT> <NOP>
 nmap <LEFT> <NOP>
 nmap <leader>g gg=G
 nmap <F8> :TagbarToggle<CR>
+
+"CTRLP
+"nmap <leader>p :CtrlPBuffer<cr>
+
+"FZF
+"nmap <leader>f :GFiles<CR>
+nmap <C-p> :Files<CR>
+nmap <leader>F :GFiles<CR>
+nmap <leader>p :Buffers<CR>
+nmap <leader>h :History<CR>
 
 "line bubling
 "nmap <C-k> [e
@@ -99,8 +114,11 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
 "edit untuk react file .jsx
-let g:jsx_ext_required = 0
-let g:jsx_pragma_required = 1
+"let g:jsx_ext_required = 0
+"let g:jsx_pragma_required = 1
+
+"jsx_improve_motion
+"let g:jsx_improve_motion_disable = 1
 
 
 
@@ -118,3 +136,9 @@ augroup seeingIsBelievingSettings
   autocmd FileType ruby nmap <buffer> <F5> <Plug>(seeing-is-believing-run)
   autocmd FileType ruby imap <buffer> <F5> <Plug>(seeing-is-believing-run)
 augroup END
+
+"persistence undo
+:set hidden
+
+ highlight Normal guibg=black guifg=white
+  set background=dark
